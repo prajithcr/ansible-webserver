@@ -20,8 +20,9 @@ pipeline {
                 }
             }
         }
-        stage('Third Stage') {
+        stage('Download Ansible Code') {
             steps {
+                git credentialsId: 'git-repo-cred', url: 'git@github.com:prajithcr/ansible-webserver.git'
                 echo "Third stage"
             }
         }
