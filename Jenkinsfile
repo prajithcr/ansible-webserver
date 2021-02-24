@@ -28,9 +28,9 @@ pipeline {
         }
         stage('Run Ansible-lint against playbok') {
             steps {
-                sh 'docker run --rm -v -v $WORKSPACE/plabooks:/data cytopia/ansible-lint apache-install.yml'
-                sh 'docker run --rm -v -v $WORKSPACE/plabooks:/data cytopia/ansible-lint apache-update.yml'
-                sh 'docker run --rm -v -v $WORKSPACE/plabooks:/data cytopia/ansible-lint apache-test.yml'
+                sh 'docker run --rm -v  $WORKSPACE/plabooks:/data cytopia/ansible-lint apache-install.yml'
+                sh 'docker run --rm -v  $WORKSPACE/plabooks:/data cytopia/ansible-lint apache-update.yml'
+                sh 'docker run --rm -v  $WORKSPACE/plabooks:/data cytopia/ansible-lint apache-test.yml'
             }
         }
     }
