@@ -11,16 +11,16 @@ pipeline {
             }
         }
         
-    }
-    stage('Install Apache &Upload website') {
-        steps {
-            sh 'ansible-playbook -u $USER --private-key $KEY_FILE -i $WORKSPACE/host_inventory $WORKSPACE/playbooks/apache-install.yml'
-            sh 'ansible-playbook -u $USER --private-key $KEY_FILE -i $WORKSPACE/host_inventory $WORKSPACE/playbooks/website-update.yml'
+        stage('Install Apache &Upload website') {
+            steps {
+              sh 'ansible-playbook -u $USER --private-key $KEY_FILE -i $WORKSPACE/host_inventory $WORKSPACE/playbooks/apache-install.yml'
+              sh 'ansible-playbook -u $USER --private-key $KEY_FILE -i $WORKSPACE/host_inventory $WORKSPACE/playbooks/website-update.yml'
+            }
         }
-    }
-    stage('Test Website') {
-        steps {
-            sh 'ansible-playbook -u $USER --private-key $KEY_FILE -i $WORKSPACE/host_inventory $WORKSPACE/playbooks/apache-test.yml'
+        stage('Test Website') {
+            steps {
+              sh 'ansible-playbook -u $USER --private-key $KEY_FILE -i $WORKSPACE/host_inventory $WORKSPACE/playbooks/apache-test.yml'
+            }
         }
     }
 }
