@@ -32,7 +32,7 @@ pipeline {
                 sh 'docker run --rm -v $WORKSPACEplaybooks:/data cytopia/ansible-lint apache-install.yml'
                 sh 'docker run --rm -v $WORKSPACE/playbooks:/data cytopia/ansible-lint apache-update.yml'
                 sh 'docker run --rm -v $WORKSPACE/playbooks:/data cytopia/ansible-lint apache-test.yml'
-                sh ' echo my newtest11"
+                sh 'echo mnewtest11'
            }
         }
     }
